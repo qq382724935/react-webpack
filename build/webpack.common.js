@@ -1,11 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const {
+  CleanWebpackPlugin
+} = require("clean-webpack-plugin");
+
 module.exports = {
-  entry: { app: path.resolve(__dirname, "../client/index.js") },
+  entry: {
+    app: path.resolve(__dirname, "../client/index.js")
+  },
   output: {
-    filename: "[name].[hash:8].js",
-    path: path.resolve(__dirname, "../dist")
+    filename: "[name].[hash].js",
+    path: path.resolve(__dirname, "../dist"),
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -14,8 +19,7 @@ module.exports = {
     new CleanWebpackPlugin()
   ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx)$/,
         loader: "babel-loader",
         exclude: /node_modules/
@@ -32,5 +36,6 @@ module.exports = {
       //   }
       // }
     ]
-  }
+  },
+  stats: "errors-only"
 };

@@ -1,11 +1,5 @@
 import React from "react";
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+import { hot } from "react-hot-loader/root";
 
-  render() {
-    return <div>Main</div>;
-  }
-}
-export default Main;
+const Main = () => <div> 世界， 你好 </div>;
+export default hot(Main);
